@@ -299,31 +299,31 @@ def evalResults(data, preds):
 #=========================<Main>================================================
 
 def main():
-    # nn_type = ['tf_net', 'tf_conv']
-    # dataset_type = ['mnist_d' , 'mnist_f', 'cifar_10', 'cifar_100_f', 'cifar_100_c']
-    # for item in nn_type:
-    #     accuracies = {}
-    #     for t in dataset_type:
-    #         raw = getRawData()
-    #         data = preprocessData(raw)
-    #         model = trainModel(data[0])
-    #         preds = runModel(data[1][0], model)
-    #         acc = evalResults(data[1], preds)
-    #         accuracies[t] = acc
-    #     plt.bar(range(len(accuracies)), list(accuracies.values()), align='center')
-    #     plt.xticks(range(len(accuracies)), list(D.keys()))
-    #     plt.xlabel('Dataset')
-    #     plt.ylabel('Accuracy')
-    #     plt.title(item)
-    #     if item == 'tf_net':
-    #         plt.savefig('./ANN_Accuracy_Plot.pdf')
-    #     else:
-    #         plt.savefig('./CNN_Accuracy_Plot.pdf')
-    raw = getRawData()
-    data = preprocessData(raw)
-    model = trainModel(data[0])
-    preds = runModel(data[1][0], model)
-    acc = evalResults(data[1], preds)
+    nn_type = ['tf_net', 'tf_conv']
+    dataset_type = ['mnist_d' , 'mnist_f', 'cifar_10', 'cifar_100_f', 'cifar_100_c']
+    for item in nn_type:
+        accuracies = {}
+        for t in dataset_type:
+            raw = getRawData()
+            data = preprocessData(raw)
+            model = trainModel(data[0])
+            preds = runModel(data[1][0], model)
+            acc = evalResults(data[1], preds)
+            accuracies[t] = acc
+        plt.bar(range(len(accuracies)), list(accuracies.values()), align='center')
+        plt.xticks(range(len(accuracies)), list(D.keys()))
+        plt.xlabel('Dataset')
+        plt.ylabel('Accuracy')
+        plt.title(item)
+        if item == 'tf_net':
+            plt.savefig('./ANN_Accuracy_Plot.pdf')
+        else:
+            plt.savefig('./CNN_Accuracy_Plot.pdf')
+    # raw = getRawData()
+    # data = preprocessData(raw)
+    # model = trainModel(data[0])
+    # preds = runModel(data[1][0], model)
+    # acc = evalResults(data[1], preds)
 
 
 
