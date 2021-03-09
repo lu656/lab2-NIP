@@ -302,8 +302,10 @@ def main():
     nn_type = ['tf_net', 'tf_conv']
     dataset_type = ['mnist_d' , 'mnist_f', 'cifar_10', 'cifar_100_f', 'cifar_100_c']
     for item in nn_type:
+        ALGORITHM = item 
         accuracies = {}
         for t in dataset_type:
+            DATASET = t
             raw = getRawData()
             data = preprocessData(raw)
             model = trainModel(data[0])
