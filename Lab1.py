@@ -26,39 +26,39 @@ DATASET = "mnist_d"
 # DATASET = "cifar_100_f"
 # DATASET = "cifar_100_c"
 
-# if DATASET == "mnist_d":
-#     NUM_CLASSES = 10
-#     IH = 28
-#     IW = 28
-#     IZ = 1
-#     IS = 784
-# elif DATASET == "mnist_f":
-#     NUM_CLASSES = 10
-#     IH = 28
-#     IW = 28
-#     IZ = 1
-#     IS = 784
-# elif DATASET == "cifar_10":
-#     # pass                                 # TODO: Add this case.
-#     NUM_CLASSES = 10
-#     IH = 32
-#     IW = 32
-#     IZ = 3
-#     IS = 1024
-# elif DATASET == "cifar_100_f":
-#     # pass                                 # TODO: Add this case.
-#     NUM_CLASSES = 100
-#     IH = 32
-#     IW = 32
-#     IZ = 3
-#     IS = 1024
-# elif DATASET == "cifar_100_c":
-#     # pass                                 # TODO: Add this case.
-#     NUM_CLASSES = 20
-#     IH = 32
-#     IW = 32
-#     IZ = 3
-#     IS = 1024
+if DATASET == "mnist_d":
+    NUM_CLASSES = 10
+    IH = 28
+    IW = 28
+    IZ = 1
+    IS = 784
+elif DATASET == "mnist_f":
+    NUM_CLASSES = 10
+    IH = 28
+    IW = 28
+    IZ = 1
+    IS = 784
+elif DATASET == "cifar_10":
+    # pass                                 # TODO: Add this case.
+    NUM_CLASSES = 10
+    IH = 32
+    IW = 32
+    IZ = 3
+    IS = 1024
+elif DATASET == "cifar_100_f":
+    # pass                                 # TODO: Add this case.
+    NUM_CLASSES = 100
+    IH = 32
+    IW = 32
+    IZ = 3
+    IS = 1024
+elif DATASET == "cifar_100_c":
+    # pass                                 # TODO: Add this case.
+    NUM_CLASSES = 20
+    IH = 32
+    IW = 32
+    IZ = 3
+    IS = 1024
 
 
 #=========================<Classifier Functions>================================
@@ -299,73 +299,73 @@ def evalResults(data, preds):
 #=========================<Main>================================================
 
 def main():
-    nn_type = ['tf_net', 'tf_conv']
-    dataset_type = ['mnist_d' , 'mnist_f', 'cifar_10', 'cifar_100_f', 'cifar_100_c']
-    global ALGORITHM
-    global DATASET
-    global IH
-    global IW
-    global IZ
-    global IS
-    global NUM_CLASSES
-    for item in nn_type:
-        ALGORITHM = item 
-        accuracies = {}
-        for t in dataset_type:
-            DATASET = t
-            if DATASET == 'mnist_d':
-                NUM_CLASSES = 10
-                IH = 28
-                IW = 28
-                IZ = 1
-                IS = 784
-            elif DATASET == "mnist_f":
-                NUM_CLASSES = 10
-                IH = 28
-                IW = 28
-                IZ = 1
-                IS = 784
-            elif DATASET == "cifar_10":
-                # pass                                 # TODO: Add this case.
-                NUM_CLASSES = 10
-                IH = 32
-                IW = 32
-                IZ = 3
-                IS = 1024 * 3
-            elif DATASET == "cifar_100_f":
-                # pass                                 # TODO: Add this case.
-                NUM_CLASSES = 100
-                IH = 32
-                IW = 32
-                IZ = 3
-                IS = 1024 * 3
-            elif DATASET == "cifar_100_c":
-                # pass                                 # TODO: Add this case.
-                NUM_CLASSES = 20
-                IH = 32
-                IW = 32
-                IZ = 3
-                IS = 1024 * 3
-            raw = getRawData()
-            data = preprocessData(raw)
-            model = trainModel(data[0])
-            preds = runModel(data[1][0], model)
-            acc = evalResults(data[1], preds)
-            accuracies[t] = acc
-        plt.bar(range(len(accuracies)), list(accuracies.values()), align='center')
-        plt.xticks(range(len(accuracies)), list(accuracies.keys()))
-        plt.xlabel('Dataset')
-        plt.ylabel('Accuracy')
-        plt.title(item)
-        if item == 'tf_net':
-            plt.savefig('./ANN_Accuracy_Plot.pdf')
-        else:
-            plt.savefig('./CNN_Accuracy_Plot.pdf')
-    # raw = getRawData()
-    # data = preprocessData(raw)
-    # model = trainModel(data[0])
-    # preds = runModel(data[1][0], model)
-    # acc = evalResults(data[1], preds)
+    # nn_type = ['tf_net', 'tf_conv']
+    # dataset_type = ['mnist_d' , 'mnist_f', 'cifar_10', 'cifar_100_f', 'cifar_100_c']
+    # global ALGORITHM
+    # global DATASET
+    # global IH
+    # global IW
+    # global IZ
+    # global IS
+    # global NUM_CLASSES
+    # for item in nn_type:
+    #     ALGORITHM = item 
+    #     accuracies = {}
+    #     for t in dataset_type:
+    #         DATASET = t
+    #         if DATASET == 'mnist_d':
+    #             NUM_CLASSES = 10
+    #             IH = 28
+    #             IW = 28
+    #             IZ = 1
+    #             IS = 784
+    #         elif DATASET == "mnist_f":
+    #             NUM_CLASSES = 10
+    #             IH = 28
+    #             IW = 28
+    #             IZ = 1
+    #             IS = 784
+    #         elif DATASET == "cifar_10":
+    #             # pass                                 # TODO: Add this case.
+    #             NUM_CLASSES = 10
+    #             IH = 32
+    #             IW = 32
+    #             IZ = 3
+    #             IS = 1024 * 3
+    #         elif DATASET == "cifar_100_f":
+    #             # pass                                 # TODO: Add this case.
+    #             NUM_CLASSES = 100
+    #             IH = 32
+    #             IW = 32
+    #             IZ = 3
+    #             IS = 1024 * 3
+    #         elif DATASET == "cifar_100_c":
+    #             # pass                                 # TODO: Add this case.
+    #             NUM_CLASSES = 20
+    #             IH = 32
+    #             IW = 32
+    #             IZ = 3
+    #             IS = 1024 * 3
+    #         raw = getRawData()
+    #         data = preprocessData(raw)
+    #         model = trainModel(data[0])
+    #         preds = runModel(data[1][0], model)
+    #         acc = evalResults(data[1], preds)
+    #         accuracies[t] = acc
+    #     plt.bar(range(len(accuracies)), list(accuracies.values()), align='center')
+    #     plt.xticks(range(len(accuracies)), list(accuracies.keys()))
+    #     plt.xlabel('Dataset')
+    #     plt.ylabel('Accuracy')
+    #     plt.title(item)
+    #     if item == 'tf_net':
+    #         plt.savefig('./ANN_Accuracy_Plot.pdf')
+    #     else:
+    #         plt.savefig('./CNN_Accuracy_Plot.pdf')
+    raw = getRawData()
+    data = preprocessData(raw)
+    model = trainModel(data[0])
+    preds = runModel(data[1][0], model)
+    acc = evalResults(data[1], preds)
 
 
 
